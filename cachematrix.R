@@ -1,13 +1,14 @@
 ## make cache matrix creates a special type of matrix 
 ## that have various functions like set , get, setInv, getInv
-## to cache , get and update its inverse 
+## to cache , get and update its inverse and values
 ## cacheSolve() gives the inverse of this special type of matrix
 ## cached if already computed or its computed and cached for future use
 
-## Write a short comment describing this function
 
+
+## this creates a special type of matrix with above mentioned functions
 makeCacheMatrix <- function(x = matrix()) {
-        m <- NULL
+        m <- NULL   
         set <- function(y){
                 x <<- y
                 m <<- NULL
@@ -22,9 +23,9 @@ makeCacheMatrix <- function(x = matrix()) {
         list(set = set, get = get, setInv =  setInv, getInv =  getInv)
 }
 
-
-
-
+## this functions returns the inverse of the special matrix
+## if already computed it returns the cached value otherwise compute it afresh
+## and store for future use
 cacheSolve <- function(x, ...) {
         m <- x$getInv()
         if(!is.null(m)){
